@@ -1,12 +1,17 @@
 import requests
 import json
 import webbrowser
+from datetime import datetime, timedelta
+
+timeBefore = timedelta(days = 7)
+searchDate = datetime.today() - timeBefore
+
 
 params = {
     "site" : "stackoverflow",
     "sort" : "votes",
     "order" : "desc",
-    "fromdate" : "2022-04-20",
+    "fromdate" : int(searchDate.timestamp()),
     "tagged" : "python",
     "min" : 15
 }
